@@ -1,11 +1,11 @@
 version: "3"
 services:
   client:
-    image: "borjanob/multi-client"
+    image: "borjanob/multi-client-10-14:latest"
     mem_limit: 128m
     hostname: client
   server:
-    image: "borjanob/multi-server"
+    image: "borjanob/multi-server-10-14:latest"
     mem_limit: 128m
     hostname: api
     environment:
@@ -17,14 +17,14 @@ services:
       - PGPASSWORD=$PGPASSWORD
       - PGPORT=$PGPORT
   worker:
-    image: "borjanob/multi-worker"
+    image: "borjanob/multi-worker-10-14:latest"
     mem_limit: 128m
     hostname: worker
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
   nginx:
-    image: "borjanob/multi-nginx"
+    image: "borjanob/multi-nginx-10-14:latest"
     mem_limit: 128m
     hostname: nginx
     ports:
