@@ -13,15 +13,15 @@ jobs:
       - run: docker build -t borjanob/react-test -f ./client/Dockerfile.dev ./client
       - run: docker run -e CI=true borjanob/react-test npm test
  
-      - run: docker build -t borjanob/multi-client-10-14 ./client
-      - run: docker build -t borjanob/multi-nginx-10-14 ./nginx
-      - run: docker build -t borjanob/multi-server-10-14 ./server
-      - run: docker build -t borjanob/multi-worker-10-14 ./worker
+      - run: docker build -t borjanob/multi-client-10-14:latest ./client
+      - run: docker build -t borjanob/multi-nginx-10-14:latest ./nginx
+      - run: docker build -t borjanob/multi-server-10-14:latest ./server
+      - run: docker build -t borjanob/multi-worker-10-14:latest ./worker
  
-      - run: docker push borjanob/multi-client-10-14
-      - run: docker push borjanob/multi-nginx-10-14
-      - run: docker push borjanob/multi-server-10-14
-      - run: docker push borjanob/multi-worker-10-14
+      - run: docker push borjanob/multi-client-10-14:latest
+      - run: docker push borjanob/multi-nginx-10-14:latest
+      - run: docker push borjanob/multi-server-10-14:latest
+      - run: docker push borjanob/multi-worker-10-14:latest
  
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
